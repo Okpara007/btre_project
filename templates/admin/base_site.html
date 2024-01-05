@@ -1,0 +1,46 @@
+{% extends 'admin/base.html' %}
+{% load static %} <!-- to enable us use photos -->
+
+{% block branding %}
+<style>
+    #header {
+        height: 50px;
+        background: #10284e;
+        color: #fff;
+    }
+    
+    #branding h1 {
+        color: #fff;
+    } 
+    
+    a:link,
+    a:visited {
+        color: #10284e;
+    }
+    
+    div.breadcrumbs {
+        background: #30caa0;
+        color: #10284e;
+    }
+
+    div.breadcrumbs a {
+        color: #333;
+    }
+
+    .module h2, .module caption, .inline-group h2 {
+        background: #30caa0;
+    }
+
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+        background: #10284e;
+        color: white;
+    }
+</style>
+    <h1 id="head">
+        <img src="{% static 'img/logo.png' %}" alt="bt real estate" height="50" width="80" class="brand_img"> Admin Area
+    </h1>
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
-urlpatterns = [
+urlpatterns = [  # can be linked to views or urls of another file, collecytion of your apps urls links
+    path("", include("pages.urls")),
+    path("listings/", include("listings.urls")),
+    path("accounts/", include("accounts.urls")), # ensure you bring this into the main urls.py 
+    path("contacts/", include("contacts.urls")), # after this you create the view method
     path("admin/", admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # enables media files to show up at the frontend 
